@@ -1,3 +1,6 @@
+-- ** DATA EXPLORATION ** 
+-- ** Sharpened skill: Joins, Windows Functions, Aggregate Functions, CTE's, Temporary Table,Creating Views, & Converting Data Types
+
 -- describe the data
 DESCRIBE coviddeath;
 DESCRIBE covidvacine;
@@ -13,7 +16,7 @@ ORDER BY location, date;
 -- Focus on analysis CovidDeath
 -- Selecting the data that we only use  
 SELECT 
-	location,
+    location,
     date,
     total_cases,
     new_cases,
@@ -23,6 +26,7 @@ FROM coviddeath
 ORDER BY location, date;
 
 -- Total_cases VS Total_dates
+-- (Showing likelihood of dying per country)
 SELECT 
 	location,
     STR_TO_DATE(date, '%d/%m/%Y') AS Date,
@@ -30,9 +34,10 @@ SELECT
     total_deaths,
     (total_deaths/total_cases)*100 AS Death_Percentage
 FROM coviddeath
+WHERE continent != ''
 ORDER BY location, Date;
 
--- Special for My Country
+-- (Showing likelihood of dying just For my Country)
 SELECT 
 	location,
     STR_TO_DATE(date, '%d/%m/%Y') AS Date,
@@ -40,10 +45,11 @@ SELECT
     total_deaths,
     (total_deaths/total_cases)*100 AS Death_Percentage
 FROM coviddeath
-WHERE location='Indonesia'
+WHERE location='Indonesia' AND continent != ''
 ORDER BY location, Date;
 
 -- Total Cases VS Population
+--(Showing the percentage of the population infected by covid)
 SELECT 
 	location,
     STR_TO_DATE(date, '%d/%m/%Y') AS Date,
@@ -54,6 +60,7 @@ FROM coviddeath
 ORDER BY location, Date;
 
 -- Special for My Country
+--(Showing the percentage of the population infected by covid for my country)
 SELECT 
 	location,
     STR_TO_DATE(date, '%d/%m/%Y') AS Date,
@@ -64,7 +71,7 @@ FROM coviddeath
 WHERE location='Indonesia'
 ORDER BY location, Date;
 
--- looking at countries with highest infection rate according to population
+-- looking at countries with highest infection rate compared to population
 SELECT 
 	location,
     population,
@@ -76,7 +83,7 @@ ORDER BY Case_Percentage DESC;
 
 
 
--- looking at countries with highest death
+-- looking at countries with highest death Count per Population
 SELECT 
 	location,
     MAX(cast(total_deaths AS UNSIGNED)) AS highest_death
@@ -85,7 +92,7 @@ WHERE continent !=''
 GROUP BY location
 ORDER BY highest_death DESC;
 
--- looking at continent with highest death
+-- looking at continent with highest death count 
 SELECT 
 	continent,
     MAX(cast(total_deaths AS UNSIGNED)) AS highest_death
@@ -104,13 +111,6 @@ WHERE continent !=''
 GROUP BY continent 
 ORDER BY deathPerPopulation DESC;
 
-SELECT 
-	continent,
-   ( MAX( cast(total_deaths AS UNSIGNED))/MAX( population))*100 AS deathPerPopulation
-FROM coviddeath
-WHERE continent !=''
-GROUP BY continent
-ORDER BY deathPerPopulation DESC;
 
 -- GLobal Number
  SELECT 
@@ -120,7 +120,7 @@ ORDER BY deathPerPopulation DESC;
  FROM coviddeath
  WHERE continent !='';
  
--- Total population vs vacination
+-- Total Population vs Vaccination
 -- Shows Percentage of population that has received at least one Covid vaccine
 
 SELECT
@@ -203,7 +203,7 @@ INNER JOIN  covidvacine as vac
 WHERE dea.continent !=''
 ORDER BY dea.location, DataDate;
 
-SELECT * FROM vaccinepercentage;
+
 
 
 
