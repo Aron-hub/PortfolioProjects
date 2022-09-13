@@ -1,22 +1,30 @@
-
--- copy table from latihanload
+-- 1. Create a table from table_header
 DROP TABLE IF EXISTS coviddeath;
-CREATE TABLE covidDeath
-SELECT * FROM latihanload.coviddeath_manual;
+CREATE TABLE coviddeath LIKE coviddeathHeader;
 
 DROP TABLE IF EXISTS covidvacine;
-CREATE TABLE covidVacine
-SELECT * FROM latihanload.covidvacine_manual;
+CREATE TABLE covidvacine LIKE covidvacineHeader;
 
--- Count number of rows
-SELECT COUNT(*) FROM coviddeath;
-
--- See the data
-SELECT * FROM coviddeath
-ORDER BY date;
-SELECT * FROM covidvacine
-ORDER BY date;
-
--- describe the data
+-- 2. Check the type of the column
 DESCRIBE coviddeath;
 DESCRIBE covidvacine;
+
+-- 3. See the local infile status
+SHOW VARIABLES LIKE 'Local_infile';
+SET GLOBAL local_infile=1;
+
+
+-- 4. load data
+LOAD DATA LOCAL INFILE "D:/Data_analysist/project'/file/covidDeath.csv'"
+INTO TABLE reviews
+FIELDS TERMINATED BY ','
+IGNORE 1 ROWS;
+
+LOAD DATA LOCAL INFILE "D:/Data_analysist/project'/file/covidVacine.csv'"
+INTO TABLE reviews
+FIELDS TERMINATED BY ','
+IGNORE 1 ROWS;
+
+-- 5. see the data
+SELECT * FROM coviddeath;
+SELECT * FROM covidvacine;
