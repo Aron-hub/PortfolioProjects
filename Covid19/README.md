@@ -1,4 +1,7 @@
 # Explanation about files
+## Source of the data
+"Our World in Data"
+https://ourworldindata.org/covid-deaths
 ## Script
 Main SQL code for data exploration
 ## Load Script
