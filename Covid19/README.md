@@ -1,10 +1,16 @@
-# Data Science Skills
+<h1 align='center'>
+ Data Science Skills
+</h1>
+
 ## Data Exploration
 MySQL: Joins, Window function, Aggregate function, CTE, temporary table, creating views, and converting data types
 ## Data Visualization
 https://public.tableau.com/app/profile/aron1678/viz/Covid19_DeathVsCases/Story1
 
-# Explanation about files
+<h1 align='center'>
+Explanation about files
+</h1>
+
 ## Source of the data
 ### Original data
 "Our World in Data", 
