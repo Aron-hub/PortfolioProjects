@@ -2,10 +2,14 @@
  Data Science Skills
 </h1>
 
+## Machine Learning with Time series
+Forecasting using linear regression with time series, trend, and seasonality
 ## Data Exploration
 MySQL: Joins, Window function, Aggregate function, CTE, temporary table, creating views, and converting data types
 ## Data Visualization
 https://public.tableau.com/app/profile/aron1678/viz/Covid19_DeathVsCases/Story1
+</br>
+https://public.tableau.com/app/profile/aron1678/viz/Covid19_VaccineVSCases/Dashboard1
 
 <h1 align='center'>
 Explanation about files
