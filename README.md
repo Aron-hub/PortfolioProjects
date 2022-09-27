@@ -6,3 +6,5 @@ Data source from 'Our World in Data'. Regardless of slowing trend of Covid-19 (a
 - What is the likelihood of dying from Covid-19 cases?
 - What is the progress of the number of deaths and cases over an entire location in the world?
 - What is the progress of the number of people vaccinated worldwide?
+</br>
+We also try to use machine learning with time series to predict new cases and deaths using linear regression, trend and seasonality 
