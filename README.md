@@ -8,3 +8,12 @@ Data source from 'Our World in Data'. Regardless of slowing trend of Covid-19 (a
 - What is the progress of the number of people vaccinated worldwide?
 </br>
 We also try to use machine learning with time series to predict new cases and deaths using linear regression, trend and seasonality 
+
+## Car Prices
+In this project, we would learn how to train a model in order to predict car prices with Machine Learning Using Pytorch.
+</br>
+Source of inspiration: https://thecleverprogrammer.com/2020/09/21/predict-car-prices-with-machine-learning/
+</br>
+- Data cleaning using Pandas: sort arrows, remove columns, customization string using function.
+- Convert data frame to PyTorch Tensors.
+- Creating PyTorch Model to predict car prices.
